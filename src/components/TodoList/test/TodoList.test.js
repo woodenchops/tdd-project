@@ -23,12 +23,14 @@ describe('TodoList component', () => {
     fireEvent.submit(form);
 
     //display error notification message
+
     expect( await screen.findByText('No value')).toBeInTheDocument();
 
   });
 
   test('todo is added if input has value', () => {
     render(<TodosProvider><TodoList /></TodosProvider>);
+
     // grab reference to form
 
     const form = screen.getByTestId('form');
@@ -46,6 +48,7 @@ describe('TodoList component', () => {
     fireEvent.submit(form);
 
     // expect that there is no error notification message
+
     expect(screen.queryByText('No value')).not.toBeInTheDocument();
 
     // expect that new todo is in list
